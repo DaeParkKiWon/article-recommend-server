@@ -1,10 +1,8 @@
 package basecampus.service.article_recommend.controller;
 
 import basecampus.service.article_recommend.dto.SummaryResponseDto;
-import basecampus.service.article_recommend.entity.Summary;
 import basecampus.service.article_recommend.service.SummaryService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
