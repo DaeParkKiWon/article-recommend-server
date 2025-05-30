@@ -28,10 +28,11 @@ public class Summary extends BaseTimeEntity {
     private String postsUrl;
 
     @Builder
-    public Summary(String summary, String publicOpinion, String postsUrl) {
+    public Summary(String summary, Keyword keyword, String publicOpinion, String postsUrl) {
         this.summary = summary;
         this.publicOpinion = publicOpinion;
         this.postsUrl = postsUrl;
+        this.keyword = keyword;
     }
 
 }
