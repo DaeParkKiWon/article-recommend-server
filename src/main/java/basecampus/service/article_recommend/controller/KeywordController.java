@@ -1,10 +1,12 @@
 package basecampus.service.article_recommend.controller;
 
+import basecampus.service.article_recommend.dto.KeywordResponseDto;
 import basecampus.service.article_recommend.entity.Keyword;
 import basecampus.service.article_recommend.service.KeywordService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,5 +25,10 @@ class KeywordController {
     public ResponseEntity<List<Keyword>> generateTodayKeywords() {
         List<Keyword> keywords = keywordService.generateKeywordsByToday();
         return ResponseEntity.ok(keywords);
+    }
+
+    @GetMapping("/today")
+    public ResponseEntity<KeywordResponseDto> getTodayKeywords() {
+        return ResponseEntity.ok(keywordService.getTodayKeywords());
     }
 }

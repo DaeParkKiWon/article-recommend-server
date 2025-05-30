@@ -1,6 +1,7 @@
 package basecampus.service.article_recommend.service;
 
 import basecampus.service.article_recommend.client.PerplexityApiClient;
+import basecampus.service.article_recommend.dto.KeywordResponseDto;
 import basecampus.service.article_recommend.entity.Keyword;
 import basecampus.service.article_recommend.repository.KeywordRepository;
 import java.time.LocalDateTime;
@@ -56,6 +57,14 @@ public class KeywordService {
         );
 
         return saved;
+    }
+
+    public KeywordResponseDto getTodayKeywords() {
+        LocalDateTime start = LocalDate.now().atStartOfDay();
+        LocalDateTime end = start.plusDays(1).minusNanos(1);
+
+        List<Keyword> keywords = keywordRepository.findAllByCreatedAtBetween(start, end);
+        return KeywordResponseDto.from(keywords);
     }
 }
 
