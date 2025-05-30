@@ -24,4 +24,8 @@ public class Keyword extends BaseTimeEntity {
     this.name = name;
     this.summary = summary;
   }
+
+  public void setSummary(Summary summary) {
+    this.summary = summary;
+  }
 }

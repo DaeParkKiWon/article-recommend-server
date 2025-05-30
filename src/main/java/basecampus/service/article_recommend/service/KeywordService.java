@@ -35,7 +35,7 @@ public class KeywordService {
         }
 
         String prompt = promptBuilder.buildDailyKeywordPrompt(date);
-        String raw = perplexityApiClient.getRecentKeywordList(prompt);
+        String raw = perplexityApiClient.getResponse(prompt);
         log.info("Perplexity 응답:\n{}", raw);
 
         if (raw == null || raw.isBlank()) {
@@ -43,6 +43,7 @@ public class KeywordService {
         }
 
         List<String> parsed = Arrays.stream(raw.split("\n"))
+                .skip(1)
                 .map(line -> line.replaceAll("^[0-9]+\\.\\s*", "").trim())
                 .filter(k -> !k.isBlank())
                 .distinct()

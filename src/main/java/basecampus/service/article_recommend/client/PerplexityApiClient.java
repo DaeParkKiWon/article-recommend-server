@@ -21,7 +21,7 @@ public class PerplexityApiClient {
     @Value("${perplexity.api.url}")
     private String apiUrl;
 
-    public String getRecentKeywordList(String prompt) {
+    public String getResponse(String prompt) {
         PerplexityReqDto request = PerplexityReqDto.create(prompt);
 
         try {
