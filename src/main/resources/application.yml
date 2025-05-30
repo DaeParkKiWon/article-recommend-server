@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: article_recommend
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${ARTICLE_RECOMMEND_DATASOURCE_URL}
+    username: ${ARTICLE_RECOMMEND_DATASOURCE_USERNAME}
+    password: ${ARTICLE_RECOMMEND_DATASOURCE_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        transaction:
+          jta:
+            platform: org.hibernate.service.jta.JtaPlatform
+        format_sql: true
+        show_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
